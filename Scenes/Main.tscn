@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://main_scene"]
+
+[ext_resource type="Script" path="res://Scenes/MainScene.cs" id="1_main"]
+[ext_resource type="Script" path="res://Scenes/PopulationView.cs" id="2_popview"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="VBox" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.0
+offset_bottom = -0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/VBox"]
+text = "Iterated Prisoner's Dilemma Evolutionary Simulation"
+horizontal_alignment = 1
+
+[node name="ParamPanel" type="HBoxContainer" parent="UI/VBox"]
+name = "ParamPanel"
+
+[node name="NLabel" type="Label" parent="UI/VBox/ParamPanel"]
+text = "Population (N):"
+
+[node name="NSlider" type="HSlider" parent="UI/VBox/ParamPanel"]
+name = "NSlider"
+min_value = 10.0
+max_value = 500.0
+value = 200.0
+size_flags_horizontal = 3
+
+[node name="GLabel" type="Label" parent="UI/VBox/ParamPanel"]
+text = "Generations (G):"
+
+[node name="GSlider" type="HSlider" parent="UI/VBox/ParamPanel"]
+name = "GSlider"
+min_value = 10.0
+max_value = 200.0
+value = 100.0
+size_flags_horizontal = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="UI/VBox"]
+
+[node name="RunButton" type="Button" parent="UI/VBox/ButtonRow"]
+name = "RunButton"
+text = "Run Simulation"
+
+[node name="AbortButton" type="Button" parent="UI/VBox/ButtonRow"]
+name = "AbortButton"
+text = "Abort"
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/VBox"]
+name = "ProgressBar"
+min_value = 0.0
+max_value = 100.0
+value = 0.0
+
+[node name="PopulationView" type="Node" parent="."]
+script = ExtResource("2_popview")
+
+[node name="ResultPanel" type="RichTextLabel" parent="UI/VBox"]
+name = "ResultPanel"
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]Results will appear here after simulation.[/b]"

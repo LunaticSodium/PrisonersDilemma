@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>PrisonersDilemma</AssemblyName>
+    <RootNamespace>PrisonersDilemma</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Configurations>Debug;Release</Configurations>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <NoWarn>CS8600;CS8602;CS8603;CS8604;CS0436</NoWarn>
+  </PropertyGroup>
+
+  <!-- Exclude Godot scene scripts from standalone dotnet build -->
+  <ItemGroup>
+    <Compile Remove="Scenes/**/*.cs" />
+    <Compile Remove="GodotMain.cs" />
+  </ItemGroup>
+</Project>
