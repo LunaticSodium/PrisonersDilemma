@@ -1,20 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Godot.NET.Sdk/4.3.0">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <OutputType>Exe</OutputType>
-    <AssemblyName>PrisonersDilemma</AssemblyName>
-    <RootNamespace>PrisonersDilemma</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <Configurations>Debug;Release</Configurations>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <NoWarn>CS8600;CS8602;CS8603;CS8604;CS0436</NoWarn>
+    <!-- Prevent duplicate assembly attribute errors when Godot's MSBuild
+         also generates AssemblyInfo in .godot/mono/temp/obj/ -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-
-  <!-- Exclude Godot scene scripts from standalone dotnet build -->
-  <ItemGroup>
-    <Compile Remove="Scenes/**/*.cs" />
-    <Compile Remove="GodotMain.cs" />
-  </ItemGroup>
 </Project>
